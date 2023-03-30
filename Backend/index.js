@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { body } = require("express-validator");
 const { connect } = require("./db");
+const { register, login, resetPassword } = require("./controllers/auth.controller");
 
 
 const app = express();
@@ -20,14 +21,6 @@ body("number").isLength({ min: 10, max: 10 })
     }
     throw new Error("You have entered an invalid email address!");
   }),
-  body("password").isString()
-    .custom(async (value) => {
-      let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-      if (pattern.test(value)) {
-        return true;
-      }
-      throw new Error("Password is not strong");
-    }),
   register
 );
 app.post("/login", login);

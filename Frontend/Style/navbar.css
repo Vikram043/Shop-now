@@ -73,7 +73,7 @@ body {
 
 #logo a>img {
     height: 100%;
-    padding: 6% 6% 6% 0%;
+    padding-bottom: 8px;
 }
 
 /* search box */
@@ -596,10 +596,9 @@ input:focus {
     position: fixed;
     bottom: 55px;
     right: 20px;
-    display: none;
     background: url(//images.shopclues.com/images/ui//scrolltop_teal.png) no-repeat 0 -74px;
     z-index: 999;
     text-indent: -999px;
     overflow: hidden;
     display: none;
-}
+} 
