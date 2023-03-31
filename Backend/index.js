@@ -3,6 +3,7 @@ const cors = require("cors");
 const { body } = require("express-validator");
 const { connect } = require("./db");
 const { register, login, resetPassword } = require("./controllers/auth.controller");
+const router = require("./controllers/mobile.controller");
 
 
 const app = express();
@@ -36,6 +37,9 @@ app.patch("/reset/:id",body("newPassword").isString()
   resetPassword
 );
 
+
+
+app.use("/mobiles", router)
 
 app.listen(process.env.port,async () => {
   try {
