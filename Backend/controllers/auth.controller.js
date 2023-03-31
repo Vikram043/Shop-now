@@ -21,11 +21,11 @@ const register = async (req, res) => {
 
     user = await User.create(req.body);
 
-    const token = createToken(user);
+    //const token = createToken(user);
 
     let status = "ok";
 
-    return res.status(200).send({ user, token, status });
+    return res.status(200).send({ user, status });
   } catch (err) {
     return res.status(400).send({ message: err.message });
   }
