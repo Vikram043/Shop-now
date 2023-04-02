@@ -20,7 +20,7 @@ function paymentDone(e) {
       async function a(){
   
       try {
-        let url = "http://localhost:3001/orders";
+        let url = "https://lovely-goat-long-underwear.cyclic.app/orders";
         let responce = await fetch(url, {
           method: "POST",
           body: orderDetail,
