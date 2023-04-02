@@ -10,7 +10,7 @@ console.log(idtoken)
   if(idtoken !== null){
     let {id,token} = idtoken;
     console.log(token)
-    let url = `http://localhost:3000/carts/${id}`;
+    let url = `https://lovely-goat-long-underwear.cyclic.app/carts/${id}`;
 
   try {
     let responce = await fetch(url, {
@@ -75,7 +75,7 @@ console.log(idtoken)
                     
                     console.log(getdata);
 
-  let url = `http://localhost:3001/carts/${_id}`;
+  let url = `https://lovely-goat-long-underwear.cyclic.app/${_id}`;
 
   try {
     let responce = await fetch(url, {

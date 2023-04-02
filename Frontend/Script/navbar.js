@@ -218,7 +218,7 @@ function timeout() {
 
       userdetail = JSON.stringify(userdetail);
 
-      let url = "http://localhost:3000/register";
+      let url = "https://lovely-goat-long-underwear.cyclic.app/register";
 
       try {
         let responce = await fetch(url, {
@@ -302,7 +302,7 @@ function timeout() {
     userData = JSON.stringify(userData);
 
     try {
-      let url = "http://localhost:3000/login";
+      let url = "https://lovely-goat-long-underwear.cyclic.app/login";
       let responce = await fetch(url, {
         method: "POST",
         body: userData,
@@ -339,7 +339,7 @@ function timeout() {
   }
 
   let getUser = async (user, token) => {
-    let url = `http://localhost:3000/users?username=${user}`;
+    let url = `https://lovely-goat-long-underwear.cyclic.app/users?username=${user}`;
 
     try {
       let responce = await fetch(url, {
@@ -395,7 +395,7 @@ function timeout() {
 
   if(idtoken !== null && idtoken !== ""){
     let {id,token} = idtoken;
-    let url = `http://localhost:3000/carts/${id}`;
+    let url = `https://lovely-goat-long-underwear.cyclic.app/carts/${id}`;
 
   try {
     let responce = await fetch(url, {

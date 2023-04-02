@@ -5,7 +5,7 @@ let data;
 let List_div = document.querySelector("#list_div");
 product();
 async function product() {
-  const response = await fetch("http://localhost:3000/mobiles", {
+  const response = await fetch("https://lovely-goat-long-underwear.cyclic.app/mobiles", {
     method: "GET", 
     headers: {
       "Content-Type": "application/json",
@@ -77,7 +77,7 @@ async function product() {
     console.log(product_id)
 async function product1() {
   alert("Product Added to Cart")
-  const response = await fetch(`http://localhost:3000/mobiles/${product_id}`, {
+  const response = await fetch(`https://lovely-goat-long-underwear.cyclic.app/${product_id}`, {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +103,7 @@ async function product1() {
       obj = JSON.stringify(obj);
       console.log(obj)
     try {
-      let url = "http://localhost:3000/carts";
+      let url = "https://lovely-goat-long-underwear.cyclic.app/carts";
       let responce = await fetch(url, {
         method: "POST",
         body: obj,
