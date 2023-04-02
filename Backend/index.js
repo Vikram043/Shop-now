@@ -4,7 +4,7 @@ const { body } = require("express-validator");
 const { connect } = require("./db");
 const { register, login, resetPassword } = require("./controllers/auth.controller");
 const router = require("./controllers/mobile.controller");
-
+const cartController = require("./controllers/crud.controller");
 
 const app = express();
 
@@ -40,6 +40,8 @@ app.patch("/reset/:id",body("newPassword").isString()
 
 
 app.use("/mobiles", router)
+
+app.use("/carts", cartController);
 
 app.listen(process.env.port,async () => {
   try {

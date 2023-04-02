@@ -1,8 +1,12 @@
-const express =require("express")
+require("dotenv").config();
+
 const jwt = require("jsonwebtoken");
-const {validationResult} = require("express-validator")
+
+const User = require("../models/user.model");
+
 const bcrypt = require("bcrypt");
-const User = require("../module/user.module");
+
+const {validationResult} = require("express-validator");
 
 const createToken = (user) => {
   return jwt.sign({ user }, "masaischool");
@@ -21,11 +25,11 @@ const register = async (req, res) => {
 
     user = await User.create(req.body);
 
-    //const token = createToken(user);
+    const token = createToken(user);
 
     let status = "ok";
 
-    return res.status(200).send({ user, status });
+    return res.status(200).send({ user, token, status });
   } catch (err) {
     return res.status(400).send({ message: err.message });
   }

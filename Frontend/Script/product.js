@@ -42,11 +42,11 @@ async function product() {
                 <p id="shipping">${el.model}</p>
                 <div class="new-price">
                   <span class="p-price">₹${el.price}</span>
-                  <span class="prd-discount">25% Off</span>
+                  <span class="prd-discount">${el.discount}</span>
                 </div>
                 <div class="old-price">
-                  <span>₹${Math.floor(Math.random() * (4000 - 3000) + 3000)}</span>
-                  <span>₹${el.price-5000}</span>
+                  <span>₹${Math.floor(Math.random() * (100000 - 3000) + 3000)}</span>
+                  <span>₹${Math.floor(Math.random() * (200000 - 3000) + 3000)}</span>
                 </div>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -56,19 +56,75 @@ async function product() {
                   <span class="fa fa-star"></span>
                 </div>
                 <p id="shipping"><i class="fal fa-truck"></i>Free Shipping</p>
+                <button id="bt">Add to Cart</button>
               </div>
             </div>`;
           location.innerHTML = x;
-          let mobile_name = document.querySelectorAll(".mobile-div");
-          mobile_name.forEach((el, i) => {
+          let bt = document.querySelectorAll("#bt");
+          bt.forEach((el, i) => {
             el.addEventListener("click", () => {
               localStorage.setItem("productDetail", JSON.stringify(d[i]._id));
-              window.location.href = "ProductDetailPage.html";
+              alert("Product added to cart")
             });
           });
         });
       }
     }
+    var description = "a";
+    let addtoCart = document.querySelectorAll("#bt");
+    addtoCart.forEach((el,i)=>{
+      el.addEventListener("click",addtoCart)
+      alert("Product added to cart")
+    })
+  
+    async function addtocart(){
+      let userDetail = JSON.parse(localStorage.getItem("loginData"));
+    if(userDetail != null && userDetail != ""){
+      let obj = {
+        image,
+        product_name,
+        price,
+        product_desc,
+        discount
+      }
+      obj = JSON.stringify(obj);
+
+    try {
+      let url = "http://localhost:3000/carts";
+      let responce = await fetch(url, {
+        method: "POST",
+        body: obj,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userDetail.token}`,
+        },
+      });
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  } 
+  else{
+    let addtoCart = document.querySelectorALL("#bt");
+
+    addtoCart.addEventListener("click", addtocart);
+    let arraytocart = JSON.parse(localStorage.getItem("cartData")) || [];
+    function addtocart(){
+      let obj = {
+        image,
+        product_name,
+        price,
+        product_desc,
+        discount
+      }
+        arraytocart.push(obj);
+        localStorage.setItem("cartData", JSON.stringify(arraytocart));
+        window.location.reload();
+    }
+  }
+}
+
+
 
   // function for high to low
   let high_price = document.getElementById("high-price");
@@ -105,7 +161,7 @@ async function product() {
     document.getElementById("price-two").checked = false;
     if (price_filter.checked === true) {
       let data1 = data.filter((el) => {
-        return el.price > 2501 && el.price < 5000;
+        return el.price > 10000 && el.price < 50000;
       });
       appendData(data1, List_div);
     }
@@ -118,7 +174,7 @@ async function product() {
     document.getElementById("price-one").checked = false;
     if (price_filter2.checked === true) {
       let data1 = data.filter((el) => {
-        return el.price > 5000;
+        return el.price > 50000;
       });
       appendData(data1, List_div);
     }
@@ -159,7 +215,7 @@ async function product() {
     document.querySelector(".aboveAll").checked = false;
     if (discount2.checked === true) {
       let data1 = data.filter((el) => {
-        return el.discount >= "21%" && el.discount <= "40%";
+        return el.discount >= "25%" && el.discount <= "40%";
       });
       appendData(data1, List_div);
     }

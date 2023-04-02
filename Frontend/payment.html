@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://images.shopclues.com/images/ui/s_logo.png">
+    <title>Payment Page</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./Style/payment.css" />
     <link rel="stylesheet" href="./Style/navbar.css">
     <link rel="stylesheet" href="./Style/footer.css">
-    <link rel="stylesheet" href="./Style/index.css">
-    <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
         <div class="header">
             <div id="sellList">
@@ -965,163 +966,119 @@
             </div>
         </div> 
     </div>
-    <div class="just_after_nav">
-        <div class="sliding_after_nav">
-          <div class="sliding_images"></div>
-          <div class="sliding_images_name">
-            <div id="sliding_name_first">
-              <p>Housefull</p>
-              <p>Day</p>
-            </div>
-            <div>
-              <p>Prime</p>
-              <p>Mall</p>
-            </div>
-            <div>
-              <p>Ultimate Toys</p>
-              <p>Collection</p>
-            </div>
-            <div>
-              <p>Raabta Women's</p>
-              <p>Wear</p>
-            </div>
-            <div>
-              <p>Diet &</p>
-              <p>Nutrition</p>
-            </div>
+    <div class="cart_steps">
+      <div class="sc_contect_wraper">
+          <div class="logo"><a href="../index.html"><img src="//images.shopclues.com/images/ui/shopclues_logo@2x.png" alt=""> </a>      
           </div>
-        </div>
-        <div class="recommodation_after_nav">
-          <img
-            src="https://cdn.shopclues.com/images/banners/Platinum1_sk_22Jan22.jpg"
-            alt=""
-          />
-          <div class="single_line"></div>
-          <img
-            src="https://cdn.shopclues.com/images/banners/Platinum2_sk_22Jan22.jpg"
-            alt=""
-          />
-          <div class="single_line"></div>
-          <img
-            src="https://cdn.shopclues.com/images/banners/Platinum3_sk_22Jan22.jpg"
-            alt=""
-          />
+          <div class="n_steps">
+          </div>
+      </div>
+  </div>
+    <div id="payment_sec">
+      <div id="methods">
+        <h3>Select Payment Mode</h3>
+        <div class="radio_methods">
+          <ul>
+            <li>
+              <input name="radioof" class="radio" type="radio" value="Debit Card" />
+              <label for="">Debit Card</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" value="Credit card" checked />
+              <label for="">Credit card</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" />
+              <label for="">Net Banking</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" value="Credit card" checked/>
+              <label for="">Paytm</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" />
+              <label for="">UPI</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" />
+              <label for="">Wallets</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" />
+              <label for="">Cash on Delivery</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" />
+              <label for="">EMI</label>
+            </li>
+            <li>
+              <input name="radioof" class="radio" type="radio" />
+              <label for="">Gift Cards</label>
+            </li>
+          </ul>
         </div>
       </div>
-  
-      <div class="six_div">
-        <div class="first_three_inside_three">
-          <div>
-            <img
-              src="https://cdn.shopclues.com/images/banners/Diet&Nutrition_ColorGold_3rdJune_PR.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://cdn.shopclues.com/images/banners/goldbanner_Beauty_3rdJune_PR.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://cdn.shopclues.com/images/banners/goldbanner_WaterBottles_3rdJune_PR.jpg"
-              alt=""
-            />
-          </div>
+      <div id="card_details">
+        <h3>Paytm</h3>
+        <div class="form_box">
+          <form onsubmit="paymentDone(event)" class="form">
+            <input type="submit" id="pay"/>
+          </form>
         </div>
-        <div class="second_three_inside_three">
-          <div>
-            <img
-              src="https://cdn.shopclues.com/images/banners/YouForever_Gold_AKG_04Jan22.jpg"
-              alt=""
-            />
-          </div>
-          <div class="single_vertical_line"></div>
-          <div>
-            <img
-              src="https://cdn.shopclues.com/images/banners/Ketex_Gold_AKG_04Jan22.jpg"
-              alt=""
-            />
-          </div>
-          <div class="single_vertical_line"></div>
-          <div>
-            <img
-              src="https://cdn.shopclues.com/images/banners/AllianceOffer_akb_3June.jpg"
-              alt=""
-            />
-          </div>
+        <div class="logos">
+          <img
+            src="	https://pay.momoe.in/payment/img/security_logos.png"
+            alt=""
+          />
+        </div>
+        <div class="discount_details">
+          <img
+            src="https://images.shopclues.com/images/ui/coin_ico.png"
+            alt=""
+          />
+          <strong>Get 100% CashBack</strong> instantly on prepaid orders! Place
+          order using Debit/Credit cards, Net Banking, Wallets, UPI etc.. and
+          get <strong>1500</strong> CluesBucks+ instantly
         </div>
       </div>
-  
-      <div class="item_store">
-        <h1>Your Gadgets Store</h1>
-        <div class="item_store_div">
-          <div class="Your_Gadgets_Store">
-           
-          </div>
-        </div>
-        <h1>Trending Fashion Zone</h1>
-        <div class="item_store_div">
-          <div class="trending_fashion_zone">
-          
-          </div>
-        </div>
-        <h1>Branded Deals</h1>
-        <div class="item_store_div">
-          <div class="branded_deals">
-           
-          </div>
-        </div>
-        <h1>Sports & Health</h1>
-        <div class="item_store_div">
-          <div class="sports_and_health">
-            
-          </div>
-        </div>
-        <h1>Brand Store</h1>
-        <div class="item_store_div">
-          <div class="brand_store">
-           
-          </div>
-        </div>
-        <h1>Bestselling Products</h1>
-        <div class="item_store_div">
-          <div class="best_selling_products" id="clicktogo">
-           
-          </div>
-        </div>
-        <h1>Budget Bazaar</h1>
-        <div class="item_store_div" id="budget_item_store">
-          <div class="budget_bazaar">
-           
-          </div>
-        </div>
-        <h1>Deals of the Day</h1>
-        <div class="item_store_div">
-          <div class="deals_of_the_day">
-            
-          </div>
-        </div>
-        <h1>Prime Mall</h1>
-        <div class="item_store_div">
-          <div class="prime_mall">
-            
-          </div>
-        </div>
-        <h1>Daily Essentials</h1>
-        <div class="item_store_div">
-          <div class="daily_essential">
-            
-          </div>
-        </div>
-        <h1>Festive Specials</h1>
-        <div class="item_store_div" id="marbtm">
-          <div class="festive_essential">
-            
-          </div>
+      <div class="offers">
+        <h3>Bank/Wallet Offers</h3>
+        <div class="applied_offer">
+          <ul>
+            <li>
+              <img
+                src="https://images.shopclues.com/images/ui/wallet_logo/post_promotion/mobikwik.png"
+                alt=""
+              />
+              <label
+                >Rs.300 Supercash* on placing order via Mobikwik, T&C
+                Apply</label
+              >
+            </li>
+            <li>
+              <img
+                src="https://images.shopclues.com/images/ui/wallet_logo/post_promotion/airtel.png"
+                alt=""
+              />
+              <label
+                >Rs.200 Cashback* on your first order with Airtel Payments Bank,
+                T&C Apply</label
+              >
+            </li>
+            <li>
+              <img
+                src="https://images.shopclues.com/images/ui/dhani_ico.png"
+                alt=""
+              />
+              <label
+                >10% off on Dhani OneFreedom Card, Min transaction value is ₹50,
+                Max Discount ₹100
+              </label>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
     <div class="footer">
         <footer>
             <div class="footer1">
@@ -1463,7 +1420,6 @@
         </footer>
         <a href="" class="uparrow"></i></a>
     </div>
-</body>
+  </body>
 </html>
-<script src="./Script/navbar.js"></script>
-
+<script src="./Script/payment.js"></script>

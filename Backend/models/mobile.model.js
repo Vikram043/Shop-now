@@ -16,6 +16,7 @@ const mobileSchema = new mongoose.Schema(
     },
     {
       versionKey: false,
+      timestamps: true,
     }
   );
   
