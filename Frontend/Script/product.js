@@ -13,12 +13,10 @@ async function product() {
     
   });
   data = await response.json(); 
-  console.log(data)
     appendData(data,List_div)
 }
 
     function appendData(d, location) {
-      console.log(d);
       if (d.length == 0) {
         location.innerHTML = null;
       } else {
@@ -60,35 +58,50 @@ async function product() {
               </div>
             </div>`;
           location.innerHTML = x;
-          let bt = document.querySelectorAll("#bt");
-          bt.forEach((el, i) => {
-            el.addEventListener("click", () => {
-              localStorage.setItem("productDetail", JSON.stringify(d[i]._id));
-              alert("Product added to cart")
-            });
-          });
+          //let bt = document.querySelectorAll("#bt");
+          // bt.forEach((el, i) => {
+          //   el.addEventListener("click", () => {
+          //     localStorage.setItem("productDetail", JSON.stringify(d[i]._id));
+          //     alert("Product added to cart")
+          //   });
+          // });
+          var description = "a";
+    let bt = document.querySelectorAll("#bt");
+    bt.forEach((e,i)=>{
+      e.addEventListener("click",product1)
+    })
         });
       }
     }
-    var description = "a";
-    let addtoCart = document.querySelectorAll("#bt");
-    addtoCart.forEach((el,i)=>{
-      el.addEventListener("click",addtoCart)
-      alert("Product added to cart")
-    })
+    var product_id = JSON.parse(localStorage.getItem("productDetail"));
+    console.log(product_id)
+async function product1() {
+  alert("Product Added to Cart")
+  const response = await fetch(`http://localhost:3000/mobiles/${product_id}`, {
+    method: "GET", // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      "Content-Type": "application/json",
+        
+    },
+    // body: JSON.stringify(data), // body data type must match "Content-Type" header
+  });
+  data = await response.json(); // parses JSON response into native JavaScript objects
+
   
+  let { img_url, price, discount, model } = data
+    // get data from local storage
+  addtocart()
     async function addtocart(){
       let userDetail = JSON.parse(localStorage.getItem("loginData"));
     if(userDetail != null && userDetail != ""){
       let obj = {
-        image,
-        product_name,
+        img_url,
+        model,
         price,
-        product_desc,
-        discount
+        dicount
       }
       obj = JSON.stringify(obj);
-
+      console.log(obj)
     try {
       let url = "http://localhost:3000/carts";
       let responce = await fetch(url, {
@@ -111,10 +124,9 @@ async function product() {
     let arraytocart = JSON.parse(localStorage.getItem("cartData")) || [];
     function addtocart(){
       let obj = {
-        image,
-        product_name,
+        img_url,
+        model,
         price,
-        product_desc,
         discount
       }
         arraytocart.push(obj);
@@ -123,8 +135,7 @@ async function product() {
     }
   }
 }
-
-
+}
 
   // function for high to low
   let high_price = document.getElementById("high-price");

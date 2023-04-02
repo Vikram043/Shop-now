@@ -30,6 +30,9 @@ body {
     background-color:white;
     padding: 1% 2% 3% 2%;
 }
+.bnox0>img{
+    height:100%
+}
 .left_arrow {
     font-size:50px;
     margin-left:20px;

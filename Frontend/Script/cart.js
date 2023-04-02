@@ -5,17 +5,18 @@ appendData();
 
 async function appendData(){
     
-  let idtoken ="642528c19d6dab7d3e9f088e";
-
+  let idtoken =JSON.parse(localStorage.getItem("loginData"));;
+console.log(idtoken)
   if(idtoken !== null){
-    let {id} = "642528c19d6dab7d3e9f088e";
+    let {id,token} = idtoken;
+    console.log(token)
     let url = `http://localhost:3000/carts/${id}`;
 
   try {
     let responce = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
-       // Authorization: `Bearer ${token}`,
+       Authorization: `Bearer ${token}`,
       },
     });
 

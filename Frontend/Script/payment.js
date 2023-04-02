@@ -1,11 +1,12 @@
 
 function paymentDone(e) {
     e.preventDefault();
-  
+  alert("Payment Done")
+  window.location.href='./index.html'
       let x = JSON.parse(localStorage.getItem("paymentdata"));
-  
+
       let { product_name, price, image } = x[0];
-  
+      price=0
       let { token } = JSON.parse(localStorage.getItem("loginData"));
   
       let orderDetail = {

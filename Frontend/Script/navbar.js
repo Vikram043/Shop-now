@@ -373,7 +373,7 @@ function timeout() {
     document.getElementById("signout").style.display = "none";
     localStorage.setItem("cartData", JSON.stringify(""));
 
-    window.location.href = "../index.html";
+    window.location.href ="./index.html";
     
   };
   document.getElementById("signout").addEventListener("click", signOut);
@@ -414,12 +414,12 @@ function timeout() {
   
         let x = "";
   
-        data.forEach(({ product_name, image, price }, index) => {
+        data.forEach(({ model, img_url, price }, index) => {
           x += `<div>
-                      <img src="${image}" alt="">
+                      <img src="${img_url}" alt="">
                   </div>
                   <div id="rs">
-                      <p>${product_name}</p>
+                      <p>${model}</p>
                       <p>Rs.${price}</p>
                   </div>`;
   
@@ -442,12 +442,12 @@ function timeout() {
   
         let x = "";
   
-        data.forEach(({ product_name, image, price }, index) => {
+        data.forEach(({ model, img_url, price }, index) => {
           x += `<div>
-                      <img src="${image}" alt="">
+                      <img src="${img_url}" alt="">
                   </div>
                   <div id="rs">
-                      <p>${product_name}</p>
+                      <p>${model}</p>
                       <p>Rs.${price}</p>
                   </div>`;
   
@@ -462,5 +462,5 @@ function timeout() {
   
   };
 
-  appendCartdata();
+  //appendCartdata();
 }
