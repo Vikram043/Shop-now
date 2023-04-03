@@ -1,9 +1,9 @@
 # trusty-business-1776
 
 #Built with
-HTML
-CSS
-JavaScript
+  *HTML
+  *CSS
+  *JavaScript
 
 
 #Landing page
