@@ -5,23 +5,22 @@ appendData();
 
 async function appendData(){
     
-  let idtoken =JSON.parse(localStorage.getItem("loginData"));;
-console.log(idtoken)
+  let idtoken = JSON.parse(localStorage.getItem("loginData"));
+
   if(idtoken !== null){
     let {id,token} = idtoken;
-    console.log(token)
-    let url = `https://lovely-goat-long-underwear.cyclic.app/carts/${id}`;
+    let url = `https://shopclues-backend.herokuapp.com/carts/${id}`;
 
   try {
     let responce = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
-       Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
 
     getdata = await responce.json();
-    console.log(getdata)
+
     if (getdata != null && getdata != "") {
         let locationof = document.getElementById("append");
     let x = "";
@@ -30,7 +29,7 @@ console.log(idtoken)
         tt += +getdata[i].price;
     }
   
-        getdata.forEach(({model,price,img_url,_id})=>{
+        getdata.forEach(({product_name,price,image,_id})=>{
 
             document.querySelector(".heading").innerHTML = `My Cart ( ${getdata.length} Item )`;
     
@@ -38,12 +37,12 @@ console.log(idtoken)
             <div class="img">
                 <img
                 class="small-img"
-                src="${img_url}"
+                src="${image}"
                 alt="mobile phone"/>
             </div>
             <div class="text">
                 <span class="box1-1">
-                    <p class="product">${model}</p>
+                    <p class="product">${product_name}</p>
                     <p id="minus">-</p><p id="number">1</p><p class="plus">+</p>
                     <p class="price">Price :</p>
                     <p class="rate">Rs${price}</p>
@@ -75,7 +74,7 @@ console.log(idtoken)
                     
                     console.log(getdata);
 
-  let url = `https://lovely-goat-long-underwear.cyclic.app/${_id}`;
+  let url = `https://shopclues-backend.herokuapp.com/carts/${_id}`;
 
   try {
     let responce = await fetch(url, {
@@ -260,6 +259,27 @@ console.log(idtoken)
     
 }
 
+
+// function to change pin code
+
+function pincodeChange(){
+    let inPin=document.getElementById("pc").value;
+    let picode=document.getElementById("pincode");
+    picode.innerHTML="";
+    let div=document.createElement("div");
+    div.style.display="flex";
+    let img=document.createElement("img");
+    img.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8bliPHslbHZ4QJutmOC9EoCfLcSqnSYc5BX88AU1BsHJfcr-7hFWqbh3CewWNbE9kcH0&usqp=CAU";
+    img.style.height="50px"
+    let div2=document.createElement("div");
+    let del=document.createElement("p");
+    del.textContent="Delivery pincode";
+    let pin=document.createElement("p");
+    pin.textContent=inPin;
+    div2.append(del,pin);
+    div.append(img,div2);
+    picode.append(div);
+}
 
 
 // function to place order

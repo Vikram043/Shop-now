@@ -1,14 +1,14 @@
 
 // function to append data
-
 let data;
 let List_div = document.querySelector("#list_div");
 product();
 async function product() {
-  const response = await fetch("https://lovely-goat-long-underwear.cyclic.app/mobiles", {
+  const response = await fetch("https://localhost:3000/procucts", {
     method: "GET", 
     headers: {
       "Content-Type": "application/json",
+      
     },
     
   });
@@ -17,6 +17,7 @@ async function product() {
 }
 
     function appendData(d, location) {
+      console.log(d);
       if (d.length == 0) {
         location.innerHTML = null;
       } else {
@@ -32,19 +33,19 @@ async function product() {
               </span>
               <div class="img-div">
                 <img
-                  src="${el.img_url}"
+                  src="${el.image}"
                   alt="mobile image"
                 />
               </div>
               <div>
-                <p id="shipping">${el.model}</p>
+                <p id="shipping">${el.product_name}</p>
                 <div class="new-price">
                   <span class="p-price">₹${el.price}</span>
-                  <span class="prd-discount">${el.discount}</span>
+                  <span class="prd-discount">${el.discount}Off</span>
                 </div>
                 <div class="old-price">
-                  <span>₹${Math.floor(Math.random() * (100000 - 3000) + 3000)}</span>
-                  <span>₹${Math.floor(Math.random() * (200000 - 3000) + 3000)}</span>
+                  <span>₹${Math.floor(Math.random() * (4000 - 3000) + 3000)}</span>
+                  <span>₹${el.mrp}</span>
                 </div>
                 <div>
                   <span class="fa fa-star checked"></span>
@@ -54,88 +55,19 @@ async function product() {
                   <span class="fa fa-star"></span>
                 </div>
                 <p id="shipping"><i class="fal fa-truck"></i>Free Shipping</p>
-                <button id="bt">Add to Cart</button>
               </div>
             </div>`;
           location.innerHTML = x;
-          //let bt = document.querySelectorAll("#bt");
-          // bt.forEach((el, i) => {
-          //   el.addEventListener("click", () => {
-          //     localStorage.setItem("productDetail", JSON.stringify(d[i]._id));
-          //     alert("Product added to cart")
-          //   });
-          // });
-          var description = "a";
-    let bt = document.querySelectorAll("#bt");
-    bt.forEach((e,i)=>{
-      e.addEventListener("click",product1)
-    })
+          let mobile_name = document.querySelectorAll(".mobile-div");
+          mobile_name.forEach((el, i) => {
+            el.addEventListener("click", () => {
+              localStorage.setItem("productDetail", JSON.stringify(d[i]._id));
+              window.location.href = "ProductDetailPage.html";
+            });
+          });
         });
       }
     }
-    var product_id = JSON.parse(localStorage.getItem("productDetail"));
-    console.log(product_id)
-async function product1() {
-  alert("Product Added to Cart")
-  const response = await fetch(`https://lovely-goat-long-underwear.cyclic.app/${product_id}`, {
-    method: "GET", // *GET, POST, PUT, DELETE, etc.
-    headers: {
-      "Content-Type": "application/json",
-        
-    },
-    // body: JSON.stringify(data), // body data type must match "Content-Type" header
-  });
-  data = await response.json(); // parses JSON response into native JavaScript objects
-
-  
-  let { img_url, price, discount, model } = data
-    // get data from local storage
-  addtocart()
-    async function addtocart(){
-      let userDetail = JSON.parse(localStorage.getItem("loginData"));
-    if(userDetail != null && userDetail != ""){
-      let obj = {
-        img_url,
-        model,
-        price,
-        dicount
-      }
-      obj = JSON.stringify(obj);
-      console.log(obj)
-    try {
-      let url = "https://lovely-goat-long-underwear.cyclic.app/carts";
-      let responce = await fetch(url, {
-        method: "POST",
-        body: obj,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userDetail.token}`,
-        },
-      });
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  } 
-  else{
-    let addtoCart = document.querySelectorALL("#bt");
-
-    addtoCart.addEventListener("click", addtocart);
-    let arraytocart = JSON.parse(localStorage.getItem("cartData")) || [];
-    function addtocart(){
-      let obj = {
-        img_url,
-        model,
-        price,
-        discount
-      }
-        arraytocart.push(obj);
-        localStorage.setItem("cartData", JSON.stringify(arraytocart));
-        window.location.reload();
-    }
-  }
-}
-}
 
   // function for high to low
   let high_price = document.getElementById("high-price");
@@ -172,7 +104,7 @@ async function product1() {
     document.getElementById("price-two").checked = false;
     if (price_filter.checked === true) {
       let data1 = data.filter((el) => {
-        return el.price > 10000 && el.price < 50000;
+        return el.price > 2501 && el.price < 5000;
       });
       appendData(data1, List_div);
     }
@@ -185,7 +117,7 @@ async function product1() {
     document.getElementById("price-one").checked = false;
     if (price_filter2.checked === true) {
       let data1 = data.filter((el) => {
-        return el.price > 50000;
+        return el.price > 5000;
       });
       appendData(data1, List_div);
     }
@@ -226,7 +158,7 @@ async function product1() {
     document.querySelector(".aboveAll").checked = false;
     if (discount2.checked === true) {
       let data1 = data.filter((el) => {
-        return el.discount >= "25%" && el.discount <= "40%";
+        return el.discount >= "21%" && el.discount <= "40%";
       });
       appendData(data1, List_div);
     }
