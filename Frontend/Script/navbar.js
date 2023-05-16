@@ -80,7 +80,7 @@ function timeout() {
     if (usernameWhenUserpage == "" || usernameWhenUserpage == null) {
       document.getElementById("back").style.display = "block";
     } else {
-      window.location.href = "/Pages/UserPage.html";
+      window.location.href = "../Pages/UserPage.html";
     }
   };
 
@@ -140,7 +140,7 @@ function timeout() {
     let input = document.getElementById("getinput").value;
 
     if (input == "mobiles") {
-      window.location.href = "ProductListPage.html";
+      window.location.href = "Product.html";
     }
   };
   document.querySelector(".srch_btn").addEventListener("click", showResult);
@@ -218,7 +218,7 @@ function timeout() {
 
       userdetail = JSON.stringify(userdetail);
 
-      let url = "https://lovely-goat-long-underwear.cyclic.app/register";
+      let url = "https://shopclues-backend.herokuapp.com/register";
 
       try {
         let responce = await fetch(url, {
@@ -302,7 +302,7 @@ function timeout() {
     userData = JSON.stringify(userData);
 
     try {
-      let url = "https://lovely-goat-long-underwear.cyclic.app/login";
+      let url = "https://shopclues-backend.herokuapp.com/login";
       let responce = await fetch(url, {
         method: "POST",
         body: userData,
@@ -339,7 +339,7 @@ function timeout() {
   }
 
   let getUser = async (user, token) => {
-    let url = `https://lovely-goat-long-underwear.cyclic.app/users?username=${user}`;
+    let url = `https://shopclues-backend.herokuapp.com/users?username=${user}`;
 
     try {
       let responce = await fetch(url, {
@@ -373,7 +373,7 @@ function timeout() {
     document.getElementById("signout").style.display = "none";
     localStorage.setItem("cartData", JSON.stringify(""));
 
-    window.location.href ="./index.html";
+    window.location.href = "../index.html";
     
   };
   document.getElementById("signout").addEventListener("click", signOut);
@@ -395,7 +395,7 @@ function timeout() {
 
   if(idtoken !== null && idtoken !== ""){
     let {id,token} = idtoken;
-    let url = `https://lovely-goat-long-underwear.cyclic.app/carts/${id}`;
+    let url = `https://shopclues-backend.herokuapp.com/carts/${id}`;
 
   try {
     let responce = await fetch(url, {
@@ -414,12 +414,12 @@ function timeout() {
   
         let x = "";
   
-        data.forEach(({ model, img_url, price }, index) => {
+        data.forEach(({ product_name, image, price }, index) => {
           x += `<div>
-                      <img src="${img_url}" alt="">
+                      <img src="${image}" alt="">
                   </div>
                   <div id="rs">
-                      <p>${model}</p>
+                      <p>${product_name}</p>
                       <p>Rs.${price}</p>
                   </div>`;
   
@@ -442,12 +442,12 @@ function timeout() {
   
         let x = "";
   
-        data.forEach(({ model, img_url, price }, index) => {
+        data.forEach(({ product_name, image, price }, index) => {
           x += `<div>
-                      <img src="${img_url}" alt="">
+                      <img src="${image}" alt="">
                   </div>
                   <div id="rs">
-                      <p>${model}</p>
+                      <p>${product_name}</p>
                       <p>Rs.${price}</p>
                   </div>`;
   
@@ -462,5 +462,5 @@ function timeout() {
   
   };
 
-  //appendCartdata();
+  appendCartdata();
 }

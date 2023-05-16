@@ -30,9 +30,6 @@ body {
     background-color:white;
     padding: 1% 2% 3% 2%;
 }
-.bnox0>img{
-    height:100%
-}
 .left_arrow {
     font-size:50px;
     margin-left:20px;
@@ -46,8 +43,9 @@ body {
 }
 .container-1 {
     background-color:white;
-    width:90%;
-    margin:auto
+    width:1320px;
+    margin-left:20px;
+    margin-top:20px;
 }
 .heading {
     font-size:24px;
@@ -191,10 +189,10 @@ span {
 }
 .container-2 {
     display:flex;
-    margin: auto;
     margin-top:15px;
     height:200px;
-    width:90%;
+    width:1320px;
+    margin-left:20px;
     background-color:white;
 }
 .image {
