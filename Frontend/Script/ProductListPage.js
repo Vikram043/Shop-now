@@ -4,7 +4,7 @@ let data;
 let List_div = document.querySelector("#list_div");
 product();
 async function product() {
-  const response = await fetch("https://localhost:3000/procucts", {
+  const response = await fetch("https://victorious-tremendous-breadfruit.glitch.me/mobiles", {
     method: "GET", 
     headers: {
       "Content-Type": "application/json",
@@ -62,7 +62,7 @@ async function product() {
           mobile_name.forEach((el, i) => {
             el.addEventListener("click", () => {
               localStorage.setItem("productDetail", JSON.stringify(d[i]._id));
-              window.location.href = "ProductDetailPage.html";
+              window.location.href = "/Frontend/productdetails.html";
             });
           });
         });

@@ -655,7 +655,7 @@ function min40offfxnAuto(){
    
 product()
 async function product() {
-  const response = await fetch(`https://shopclues-backend.herokuapp.com/mobiles/${product_id}`, {
+  const response = await fetch(`https://victorious-tremendous-breadfruit.glitch.me/mobiles/${product_id}`, {
     method: "GET", // *GET, POST, PUT, DELETE, etc.
     headers: {
       "Content-Type": "application/json",
@@ -811,7 +811,7 @@ async function product() {
         />
         <p class="plus">Extra CluesBucks+</p>
         <p class="club">only on VIP Club.</p>
-        <a href=" Join Now"> Join Now</a></span
+        <a href="/Frontend/Pages/UserPage.html"> Join Now</a></span
       >
       <span  id="spanof" class="ul"
         ><ul>
@@ -824,11 +824,11 @@ async function product() {
       <ul class="storage">
         <li>OS Name : Android Pie 9.0</li>
       </ul>
-      <a href="More Specification" class="more">More Specification</a>
+      <a href="#Paris" class="more">More Specification</a>
       <p class="emi"><i class="fal fa-badge-percent"></i>Emi starts at 423</p>
       <span id="spanof" 
         ><p class="offer"><i class="fas fa-tags"></i> 4 offers Available for you</p>
-        <a href="+3 More">+3 More</a></span
+        <a href="#">+3 More</a></span
       >
       <span id="spanof" 
         ><p class="prepaid">PREPAID100</p>
@@ -884,13 +884,13 @@ async function product() {
         image,
         product_name,
         price,
-        product_desc,
+        product_desc:"very good Phone",
         discount
       }
       obj = JSON.stringify(obj);
-
+      console.log(obj)
     try {
-      let url = "https://shopclues-backend.herokuapp.com/carts";
+      let url = "https://victorious-tremendous-breadfruit.glitch.me/carts";
       let responce = await fetch(url, {
         method: "POST",
         body: obj,
@@ -899,12 +899,14 @@ async function product() {
           Authorization: `Bearer ${userDetail.token}`,
         },
       });
+      
       window.location.reload();
     } catch (err) {
       console.log(err);
     }
   } 
   else{
+    alert("Please login to save your Carts")
     let addtoCart = document.querySelector(".add");
 
     addtoCart.addEventListener("click", addtocart);

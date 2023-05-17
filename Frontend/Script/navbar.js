@@ -80,7 +80,7 @@ function timeout() {
     if (usernameWhenUserpage == "" || usernameWhenUserpage == null) {
       document.getElementById("back").style.display = "block";
     } else {
-      window.location.href = "../Pages/UserPage.html";
+      window.location= "/Frontend/Pages/UserPage.html";
     }
   };
 
@@ -218,7 +218,7 @@ function timeout() {
 
       userdetail = JSON.stringify(userdetail);
 
-      let url = "https://shopclues-backend.herokuapp.com/register";
+      let url = "https://victorious-tremendous-breadfruit.glitch.me/register";
 
       try {
         let responce = await fetch(url, {
@@ -302,7 +302,7 @@ function timeout() {
     userData = JSON.stringify(userData);
 
     try {
-      let url = "https://shopclues-backend.herokuapp.com/login";
+      let url = "https://victorious-tremendous-breadfruit.glitch.me/login";
       let responce = await fetch(url, {
         method: "POST",
         body: userData,
@@ -339,7 +339,7 @@ function timeout() {
   }
 
   let getUser = async (user, token) => {
-    let url = `https://shopclues-backend.herokuapp.com/users?username=${user}`;
+    let url = `https://victorious-tremendous-breadfruit.glitch.me/users?username=${user}`;
 
     try {
       let responce = await fetch(url, {
@@ -373,7 +373,7 @@ function timeout() {
     document.getElementById("signout").style.display = "none";
     localStorage.setItem("cartData", JSON.stringify(""));
 
-    window.location.href = "../index.html";
+    window.location.href = "/Frontend/index.html";
     
   };
   document.getElementById("signout").addEventListener("click", signOut);
@@ -395,7 +395,7 @@ function timeout() {
 
   if(idtoken !== null && idtoken !== ""){
     let {id,token} = idtoken;
-    let url = `https://shopclues-backend.herokuapp.com/carts/${id}`;
+    let url = `https://victorious-tremendous-breadfruit.glitch.me/carts/${id}`;
 
   try {
     let responce = await fetch(url, {

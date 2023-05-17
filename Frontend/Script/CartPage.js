@@ -6,11 +6,9 @@ appendData();
 async function appendData(){
     
   let idtoken = JSON.parse(localStorage.getItem("loginData"));
-
-  if(idtoken !== null){
+  if(idtoken !== null && idtoken!=''){
     let {id,token} = idtoken;
-    let url = `https://shopclues-backend.herokuapp.com/carts/${id}`;
-
+    let url = `https://victorious-tremendous-breadfruit.glitch.me/carts/${id}`;
   try {
     let responce = await fetch(url, {
       headers: {
@@ -20,8 +18,9 @@ async function appendData(){
     });
 
     getdata = await responce.json();
-
+    
     if (getdata != null && getdata != "") {
+        console.log(getdata)
         let locationof = document.getElementById("append");
     let x = "";
     let tt = 0;
@@ -30,7 +29,6 @@ async function appendData(){
     }
   
         getdata.forEach(({product_name,price,image,_id})=>{
-
             document.querySelector(".heading").innerHTML = `My Cart ( ${getdata.length} Item )`;
     
             x += `<div class="box1">
@@ -74,7 +72,7 @@ async function appendData(){
                     
                     console.log(getdata);
 
-  let url = `https://shopclues-backend.herokuapp.com/carts/${_id}`;
+  let url = `https://victorious-tremendous-breadfruit.glitch.me/carts/${_id}`;
 
   try {
     let responce = await fetch(url, {
@@ -153,6 +151,7 @@ async function appendData(){
     let locationof = document.getElementById("append");
     let x = "";
     let tt = 0;
+    console.log(getdata)
     for(let i=0; i<getdata.length; i++){
         tt += +getdata[i].price;
     }
