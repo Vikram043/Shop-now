@@ -19,7 +19,7 @@ function paymentDone(e) {
     async function a(){
 
     try {
-      let url = "https://shopclues-backend.herokuapp.com/orders";
+      let url = "https://victorious-tremendous-breadfruit.glitch.me/orders";
       let responce = await fetch(url, {
         method: "POST",
         body: orderDetail,
@@ -30,7 +30,8 @@ function paymentDone(e) {
       });
 
       localStorage.setItem("cartData", JSON.stringify(""));
-      window.location.href = "https://shopcluespaytm.herokuapp.com/";
+      alert("Payment Done")
+      window.location = "/Frontend/index.html";
 
     } catch (err) {
       console.log(err);

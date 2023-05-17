@@ -17,8 +17,8 @@ function navbar(){
         <!-- website logo -->
 
         <div id="logo">
-            <a href="/index.html">
-                <img src="https://images.shopclues.com/images/ui/shopclues_logo@2x.png" alt="logo">
+            <a href="/Frontend/index.html">
+                <img src="/Frontend/images/logo-2.jpg" alt="logo">
             </a>
         </div>
 
@@ -138,17 +138,17 @@ function navbar(){
                         <div class="ul_menu_block">
                             <div id="column_1" class="s_col">
                                 <ul>
-                                    <li><strong><a href="../product.html">Smartphones & Tablets</a></strong></li>
-                                    <li><a href="../ProductListPage.html">I KALL</a></li>
-                                    <li><a href="../ProductListPage.html">Mi</a></li>
-                                    <li><a href="../ProductListPage.html">Realme</a></li>
-                                    <li><a href="../ProductListPage.html">Samsung</a></li>
-                                    <li><a href="../ProductListPage.html">Vivo</a></li>
-                                    <li><a href="../ProductListPage.html">Oppo</a></li>
-                                    <li><a href="../ProductListPage.html">Apple</a></li>
-                                    <li><a href="../ProductListPage.html">Techno</a></li>
-                                    <li><a href="../ProductListPage.html">Infinix</a></li>
-                                    <li><a href="../ProductListPage.html">Micromax</a></li>
+                                <li><strong><a href="/Frontend/product.html">Smartphones & Tablets</a></strong></li>
+                                    <li><a href="/Frontend/product.html">I KALL</a></li>
+                                    <li><a href="/Frontend/product.html">Mi</a></li>
+                                    <li><a href="/Frontend/product.html">Realme</a></li>
+                                    <li><a href="/Frontend/product.html">Samsung</a></li>
+                                    <li><a href="/Frontend/product.html">Vivo</a></li>
+                                    <li><a href="/Frontend/product.html">Oppo</a></li>
+                                    <li><a href="/Frontend/product.html">Apple</a></li>
+                                    <li><a href="/Frontend/product.html">Techno</a></li>
+                                    <li><a href="/Frontend/product.html">Infinix</a></li>
+                                    <li><a href="/Frontend/product.html">Micromax</a></li>
                                     <br>
                                     <li><strong>Refurbished Smartphones</strong></li>
                                     <br><br>

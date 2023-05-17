@@ -2,7 +2,7 @@ const express = require("express");
 
 const cors = require("cors");
 
-const connect = require("./db");
+const connect = require("./configs/db");
 
 const { body } = require("express-validator");
 
@@ -42,6 +42,15 @@ app.post(
     }
     throw new Error("You have entered an invalid email address!");
   }),
+  body("password")
+    .isString()
+    .custom(async (value) => {
+      let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+      if (pattern.test(value)) {
+        return true;
+      }
+      throw new Error("Password is not strong");
+    }),
   register
 );
 app.post("/login", login);
@@ -68,20 +77,11 @@ app.use("/carts", cartController);
 
 app.use("/mobiles", mobileController);
 
-app.listen(process.env.PORT, async () => {
+app.listen(process.env.PORT || 3001, '0.0.0.0', async () => {
   try {
-    await connect
+    await connect();
     console.log("listning to port 2349");
   } catch (err) {
     console.log(err);
   }
 });
-
-// app.listen(2349, async () => {
-//   try {
-//     await connect();
-//     console.log("listning to port 2349");
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
