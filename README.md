@@ -25,7 +25,7 @@ Features
     Order History: Keep track of your order history for future reference.
     Responsive Design: Enjoy a consistent and visually appealing experience across devices.
 
-Demo: 
+Demo: https://voluble-crepe-4e2edb.netlify.app/
 
 Check out the live demo of the Shop Clues Website Clone here.
 Installation
